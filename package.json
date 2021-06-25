@@ -5,11 +5,15 @@
     "scripts": {
         "dev": "vue-cli-service serve",
         "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
+        "build:prd": "node create_build_str_json.js && cross-env BUILD_ENV=production vue-cli-service build",
+        "build:pre": "node create_build_str_json.js && cross-env BUILD_ENV=preview vue-cli-service build",
+        "build:qa": "node create_build_str_json.js && cross-env BUILD_ENV=development vue-cli-service build",
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "axios": "^0.21.1",
         "core-js": "^3.6.5",
+        "cross-env": "^7.0.3",
         "vue": "^2.6.11",
         "vue-router": "^3.2.0"
     },
